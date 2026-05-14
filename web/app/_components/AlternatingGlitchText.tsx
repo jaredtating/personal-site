@@ -1,34 +1,32 @@
-import { useEffect, useMemo, useState } from "react";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import GlitchText from "./GlitchText";
-import { clsx } from "clsx";
-import { AnimatePresence, motion } from "motion/react";
 
-const fonts = [
-  "font-sans",
-  "font-serif",
-  "font-mono",
-  "font-display",
-  "font-handwriting",
-  "font-alt",
-];
+const scrambleChars = "abcdefghijklmnopqrstuvwxyz";
 
-const fontWeights = [
-  "font-thin",
-  "font-light",
-  "font-normal",
-  "font-semibold",
-  "font-bold",
-  "font-black",
-];
-const fontStyles = ["italic", "not-italic"];
+const randomBool = (chance = 0.25) => Math.random() < chance;
 
-// Fun idea to revisit.
-// const textCases = [
-//   (text: string) => text.toLowerCase(),
-//   (text: string) => text.toUpperCase(),
-// ];
+const getScrambledText = (current: string, next: string, progress: number) => {
+  const maxLength = Math.max(current.length, next.length);
+  let result = "";
 
-const initialOrigins = ["center", "top", "bottom", "left", "right"];
+  for (let i = 0; i < maxLength; i += 1) {
+    const nextChar = next[i] ?? "";
+
+    if (Math.random() < progress) {
+      result += nextChar;
+      continue;
+    }
+
+    const currentChar = current[i] ?? "";
+    result +=
+      currentChar ||
+      scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+  }
+
+  return result;
+};
 
 const AlternatingGlitchText = ({
   wordList,
@@ -37,59 +35,69 @@ const AlternatingGlitchText = ({
   wordList: string[];
   className?: string;
 }) => {
-  const [verbIndex, setVerbIndex] = useState(0);
-  const [randomStyle, setRandomStyle] = useState("");
-
-  const initialState = useMemo(
-    () => ({
-      opacity: 0.2 + Math.random() * 0.4,
-      scaleY: 0.2 + Math.random() * 0.6,
-      transformOrigin:
-        initialOrigins[Math.floor(Math.random() * initialOrigins.length)],
-    }),
-    [verbIndex],
-  );
-
-  const shouldDisable = useMemo(() => Math.random() < 0.75, [verbIndex]);
+  const [displayText, setDisplayText] = useState(wordList[0] ?? "");
+  const [shouldDisable, setShouldDisable] = useState(false);
+  const currentIndexRef = useRef(0);
+  const displayTextRef = useRef(displayText);
+  const timeoutsRef = useRef<number[]>([]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setVerbIndex((prev) => (prev + 1) % wordList.length);
+    displayTextRef.current = displayText;
+  }, [displayText]);
 
-      //   Fun idea to revisit.
-      //   setRandomStyle(
-      //     clsx(
-      //       fonts[Math.floor(Math.random() * fonts.length)],
-      //       fontWeights[Math.floor(Math.random() * fontWeights.length)],
-      //       fontStyles[Math.floor(Math.random() * fontStyles.length)],
-      //     ),
-      //   );
-    }, 500);
+  useEffect(() => {
+    timeoutsRef.current.forEach(window.clearTimeout);
+    timeoutsRef.current = [];
+    currentIndexRef.current = 0;
+    setDisplayText(wordList[0] ?? "");
 
-    return () => clearInterval(interval);
-  }, []);
+    if (wordList.length <= 1) return;
+
+    const runScramble = () => {
+      const nextIndex = (currentIndexRef.current + 1) % wordList.length;
+      const nextWord = wordList[nextIndex];
+      const currentWord = displayTextRef.current;
+
+      setShouldDisable(randomBool(0.33));
+
+      const frames = 10;
+      const frameDuration = 100;
+
+      for (let frame = 0; frame <= frames; frame += 1) {
+        const timeout = window.setTimeout(() => {
+          setDisplayText(
+            getScrambledText(currentWord, nextWord, frame / frames),
+          );
+
+          if (frame === frames) {
+            currentIndexRef.current = nextIndex;
+          }
+        }, frame * frameDuration);
+
+        timeoutsRef.current.push(timeout);
+      }
+
+      const nextDelay = (frames + 1) * frameDuration + 800;
+      timeoutsRef.current.push(window.setTimeout(runScramble, nextDelay));
+    };
+
+    runScramble();
+
+    return () => {
+      timeoutsRef.current.forEach(window.clearTimeout);
+      timeoutsRef.current = [];
+    };
+  }, [wordList]);
 
   return (
-    <AnimatePresence>
-      <motion.span
-        initial={initialState}
-        animate={{
-          opacity: 1,
-          scaleY: 1,
-          transition: { duration: 0.2 },
-        }}
-        exit={{ opacity: 0 }}
-        key={verbIndex}
-        className="absolute"
-      >
-        <GlitchText
-          shouldDisable={shouldDisable}
-          as="span"
-          className={clsx(randomStyle, "left-4", className)}
-          text={wordList[verbIndex]}
-        />
-      </motion.span>
-    </AnimatePresence>
+    <span className="relative inline-block w-fit">
+      <GlitchText
+        shouldDisable={shouldDisable}
+        as="span"
+        className={className}
+        text={displayText}
+      />
+    </span>
   );
 };
 
