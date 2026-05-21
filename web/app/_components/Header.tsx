@@ -18,13 +18,13 @@ const NAME = "Jared Tating";
 
 const Header = () => {
   return (
-    <div className="content-grid grid-row-[2fr_1fr] w-full h-full min-h-[calc(100vh-100px)] bg-gray-main">
+    <div className="content-grid grid-row-[1fr_2fr] w-full h-full min-h-[calc(100vh-100px)] bg-linear-to-b from-neutral-800 to-neutral-900">
       {/* Hero section */}
       <div className="content-main -rotate-3 -skew-3">
-        <div className="grid grid-cols-[1fr_auto_3fr] gap-4 grid-rows-1 w-full items-center mt-[20%]">
-          <div className="border-10 border-r-0 h-10" />
+        <div className="grid grid-cols-[1fr_auto_3fr] gap-6 grid-rows-1 w-full items-center mt-[15%]">
+          <div className="border-10 border-r-0 h-12 rounded-l-sm" />
           <GlitchText className="text-8xl uppercase" text={NAME} />
-          <div className="border-10 border-l-0 h-10" />
+          <div className="border-10 border-l-0 h-12 rounded-r-sm" />
         </div>
         <div className="pl-40 pt-3 flex flex-col gap-2">
           <p className="text-4xl font-bold">

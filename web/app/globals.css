@@ -42,17 +42,17 @@
   }
 
   .glitch span:first-child {
-    animation: glitch 650ms infinite;
+    animation: glitch 800ms infinite;
     clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-    transform: translate(-0.025em, -0.0125em);
+    transform: translate(-0.01em, -0.01em);
     /* color: green; */
     opacity: 0.8;
   }
 
   .glitch span:last-child {
-    animation: glitch 375ms infinite;
+    animation: glitch 400ms infinite;
     clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
-    transform: translate(0.0125em, 0.025em);
+    transform: translate(0.01em, 0.01em);
     /* color: red; */
     opacity: 0.8;
   }
@@ -69,18 +69,18 @@
 
   .glitch-a {
     animation:
-      flicker 800ms infinite,
-      glitch 800ms infinite,
-      change-paths 1600ms infinite,
-      shift 800ms infinite;
+      flicker 1600ms infinite,
+      glitch 1600ms infinite,
+      change-paths 3200ms infinite,
+      shift 1600ms infinite;
   }
 
   .glitch-b {
     animation:
-      flicker 1000ms infinite,
-      glitch 500ms infinite,
-      change-paths 1000ms infinite,
-      shift 2000ms infinite;
+      flicker 2000ms infinite,
+      glitch 1000ms infinite,
+      change-paths 2000ms infinite,
+      shift 4000ms infinite;
   }
 
   .glitch-single {
@@ -212,6 +212,6 @@
 }
 
 body {
-  background: var(--color-gray-main);
+  background: var(--color-taupe-800);
   color: var(--foreground);
 }
