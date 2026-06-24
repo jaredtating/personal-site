@@ -4,6 +4,7 @@ import Link from "next/link";
 import Nav from "./Nav";
 import GlitchText from "./GlitchText";
 import AlternatingGlitchText from "./AlternatingGlitchText";
+import clsx from "clsx";
 
 const socialLinks = [
   { name: "Github", href: "https://github.com" },
@@ -16,15 +17,17 @@ const verbs = ["code", "run", "design", "cook", "lift"];
 
 const NAME = "Jared Tating";
 
+// bg-linear-to-b from-gray-800 to-gray-900
+
 const Header = () => {
   return (
-    <div className="content-grid grid-row-[1fr_2fr] w-full h-full min-h-[calc(100vh-100px)] bg-linear-to-b from-neutral-800 to-neutral-900">
+    <div className="relative content-grid grid-row-[1fr_2fr] w-full h-full min-h-[calc(100vh-100px)] header-gradient gridded">
       {/* Hero section */}
-      <div className="content-main -rotate-3 -skew-3">
+      <div className="content-main -rotate-3 -skew-3 z-10">
         <div className="grid grid-cols-[1fr_auto_3fr] gap-6 grid-rows-1 w-full items-center mt-[15%]">
-          <div className="border-10 border-r-0 h-12 rounded-l-sm" />
+          <div className="border-8 border-r-0 h-14 rounded-l-sm" />
           <GlitchText className="text-8xl uppercase" text={NAME} />
-          <div className="border-10 border-l-0 h-12 rounded-r-sm" />
+          <div className="border-8 border-l-0 h-14 rounded-r-sm" />
         </div>
         <div className="pl-40 pt-3 flex flex-col gap-2">
           <p className="text-4xl font-bold">
@@ -42,7 +45,7 @@ const Header = () => {
       </div>
 
       {/* Links section */}
-      <div className="content-main flex flex-col items-end gap-2">
+      <div className="content-main flex flex-col items-end gap-2 z-10">
         {sections.map((section) => (
           <Link className="uppercase font-bold text-4xl" href="" key={section}>
             {section}

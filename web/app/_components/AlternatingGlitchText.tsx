@@ -97,6 +97,7 @@ const AlternatingGlitchText = ({
         className={className}
         text={displayText}
       />
+      {"."}
     </span>
   );
 };

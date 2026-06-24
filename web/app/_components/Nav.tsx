@@ -8,7 +8,7 @@ const links = [
 
 const Nav = () => {
   return (
-    <section className="content-grid z-10 w-full border-b sticky top-0 shadow-xl bg-neutral-800">
+    <section className="content-grid z-20 w-full border-b sticky top-0 shadow-xl header-gradient">
       <section className="content-main flex flex-row justify-between items-center max-w-300 w-full h-25">
         <PiLogo className="cursor-pointer" />
         <div className="flex flex-row gap-6 items-center">
@@ -19,7 +19,7 @@ const Nav = () => {
               </Link>
             );
           })}
-          <button className="bg-teal px-4 py-2 rounded-xl text-2xl font-bold cursor-pointer">
+          <button className="border rounded-full px-4 py-2 text-2xl font-bold cursor-pointer">
             Contact me
           </button>
         </div>
