@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PiLogo from "./PiLogo.svg";
+import ContactButton from "./ContactButton";
 
 const links = [
   { pathname: "/", name: "Home" },
@@ -19,9 +20,7 @@ const Nav = () => {
               </Link>
             );
           })}
-          <button className="border rounded-full px-4 py-2 text-2xl font-bold cursor-pointer">
-            Contact me
-          </button>
+          <ContactButton />
         </div>
       </section>
     </section>

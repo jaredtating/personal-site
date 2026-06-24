@@ -21,9 +21,9 @@ const NAME = "Jared Tating";
 
 const Header = () => {
   return (
-    <div className="relative content-grid grid-row-[1fr_2fr] w-full h-full min-h-[calc(100vh-100px)] header-gradient gridded">
+    <div className="relative content-grid grid-rows-[3fr_auto_1fr] w-full h-full min-h-[calc(100vh-100px)] header-gradient gridded">
       {/* Hero section */}
-      <div className="content-main -rotate-3 -skew-3 z-10">
+      <div className="content-main -rotate-3 -skew-3 z-10 row-start-1">
         <div className="grid grid-cols-[1fr_auto_3fr] gap-6 grid-rows-1 w-full items-center mt-[15%]">
           <div className="border-8 border-r-0 h-14 rounded-l-sm" />
           <GlitchText className="text-8xl uppercase" text={NAME} />
@@ -45,13 +45,26 @@ const Header = () => {
       </div>
 
       {/* Links section */}
-      <div className="content-main flex flex-col items-end gap-2 z-10">
-        {sections.map((section) => (
-          <Link className="uppercase font-bold text-4xl" href="" key={section}>
-            {section}
-          </Link>
-        ))}
+      <div className="flex content-main justify-between z-10 row-start-2">
+        <p className="text-4xl text-gray-700 self-end">
+          still workin' on this site*
+        </p>
+        <div className="gap-2 flex flex-col">
+          {sections.map((section) => (
+            <Link
+              className="uppercase font-bold text-4xl"
+              href=""
+              key={section}
+            >
+              {section}
+            </Link>
+          ))}
+        </div>
       </div>
+
+      {/* Vertical line. */}
+      <div className="absolute bottom-0 h-1/12 left-1/2 w-2 -translate-x-1/2 bg-white" />
+      <div className="absolute rounded-full bottom-1/12 left-1/2 size-6 -translate-x-1/2 translate-y-1/2 bg-white" />
     </div>
   );
 };

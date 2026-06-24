@@ -5,7 +5,7 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  --first-color: rgba(0, 155, 255, 0.5);
+  --first-color: rgba(255, 155, 0, 0.707);
   --second-color: rgba(0, 255, 255, 0.5);
   --third-color: rgba(0, 0, 255, 0.5);
 }
