@@ -47,7 +47,7 @@ const Header = () => {
       {/* Links section */}
       <div className="flex content-main justify-between z-10 row-start-2">
         <p className="text-4xl text-gray-700 self-end">
-          still workin' on this site*
+          site still a bit of a work in progress*
         </p>
         <div className="gap-2 flex flex-col">
           {sections.map((section) => (
