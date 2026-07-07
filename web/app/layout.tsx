@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "./_components/Nav";
+import Footer from "./_components/Footer";
 
 export const metadata: Metadata = {
   title: "Jared Tating | Personal site",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );

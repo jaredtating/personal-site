@@ -1,23 +1,34 @@
+"use client";
+
 import Link from "next/link";
 import PiLogo from "./PiLogo.svg";
 import ContactButton from "./ContactButton";
+import { usePathname } from "next/navigation";
 
 const links = [
   { pathname: "/", name: "Home" },
   { pathname: "/gallery", name: "Gallery" },
-];
+] as const;
 
 const Nav = () => {
+  const path = usePathname();
+
   return (
     <section className="content-grid z-20 w-full border-b sticky top-0 shadow-xl header-gradient">
       <section className="content-main flex flex-row justify-between items-center max-w-300 w-full h-25">
         <PiLogo className="cursor-pointer" />
         <div className="flex flex-row gap-6 items-center">
           {links.map(({ pathname, name }) => {
+            const shouldUseHeader = path === pathname;
+            const NavEl = shouldUseHeader ? "a" : Link;
             return (
-              <Link className="text-2xl font-bold" href={pathname}>
+              <NavEl
+                className="text-2xl font-bold"
+                href={shouldUseHeader ? "#header" : pathname}
+                key={pathname}
+              >
                 {name}
-              </Link>
+              </NavEl>
             );
           })}
           <ContactButton />

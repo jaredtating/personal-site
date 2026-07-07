@@ -23,7 +23,10 @@ const schools = [
 
 const SchoolsSection = () => {
   return (
-    <section className="relative content-grid header-gradient w-full py-20 pb-35">
+    <section
+      className="relative content-grid header-gradient w-full py-20 pb-35"
+      id="schools"
+    >
       <div className="content-main grid grid-cols-2 gap-40">
         <div className="col-start-1 flex flex-col justify-center items-center gap-10">
           <h2 className="text-5xl uppercase font-bold">Education</h2>
@@ -61,13 +64,13 @@ const SchoolsSection = () => {
       </div>
 
       {/* Top triangle. */}
-      <div className="absolute -top-1 w-full h-20 bg-gray-700 [clip-path:polygon(0%_0%,0%_100%,100%_0%)]" />
+      <div className="absolute -top-px w-full h-20 bg-gray-700 [clip-path:polygon(0%_0%,0%_100%,100%_0%)]" />
 
       {/* Bottom triangle. */}
-      <div className="absolute -bottom-1 w-full h-20 bg-white [clip-path:polygon(0%_0%,0%_100%,100%_100%)]" />
+      <div className="absolute -bottom-px w-full h-20 bg-white [clip-path:polygon(0%_0%,0%_100%,100%_100%)]" />
 
       {/* Divider. */}
-      <div className="absolute -top-1 left-1/2 h-full w-2 -translate-x-1/2 bg-white z-10" />
+      <div className="absolute -top-px left-1/2 h-full w-2 -translate-x-1/2 bg-white z-10" />
     </section>
   );
 };

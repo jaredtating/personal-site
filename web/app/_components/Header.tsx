@@ -12,7 +12,11 @@ const socialLinks = [
   { name: "Instagram", href: "https://instagram.com" },
 ];
 
-const sections = ["About me", "Education", "Projects"];
+const sections = [
+  { text: "About me", id: "about-me" },
+  { text: "Education", id: "schools" },
+  { text: "Projects", id: "projects" },
+];
 const verbs = ["code", "run", "design", "cook", "lift"];
 
 const NAME = "Jared Tating";
@@ -21,7 +25,10 @@ const NAME = "Jared Tating";
 
 const Header = () => {
   return (
-    <div className="relative content-grid grid-rows-[3fr_auto_1fr] w-full h-full min-h-[calc(100vh-100px)] header-gradient gridded">
+    <section
+      className="relative content-grid grid-rows-[3fr_auto_1fr] w-full h-full min-h-[calc(100vh-100px)] header-gradient gridded"
+      id="header"
+    >
       {/* Hero section */}
       <div className="content-main -rotate-3 -skew-3 z-10 row-start-1">
         <div className="grid grid-cols-[1fr_auto_3fr] gap-6 grid-rows-1 w-full items-center mt-[15%]">
@@ -50,14 +57,14 @@ const Header = () => {
           site still a bit of a work in progress*
         </p>
         <div className="gap-2 flex flex-col">
-          {sections.map((section) => (
-            <Link
+          {sections.map(({ text, id }) => (
+            <a
               className="uppercase font-bold text-4xl"
-              href=""
-              key={section}
+              href={`#${id}`}
+              key={text}
             >
-              {section}
-            </Link>
+              {text}
+            </a>
           ))}
         </div>
       </div>
@@ -65,7 +72,7 @@ const Header = () => {
       {/* Vertical line. */}
       <div className="absolute bottom-0 h-1/12 left-1/2 w-2 -translate-x-1/2 bg-white" />
       <div className="absolute rounded-full bottom-1/12 left-1/2 size-6 -translate-x-1/2 translate-y-1/2 bg-white" />
-    </div>
+    </section>
   );
 };
 

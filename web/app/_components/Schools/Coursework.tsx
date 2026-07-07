@@ -19,6 +19,7 @@ const Coursework = () => {
             className={clsx("text-xl font-bold cursor-pointer", {
               underline: key === currCourse,
             })}
+            key={key}
           >
             {entry.name}
           </p>
@@ -32,7 +33,10 @@ const Coursework = () => {
         }}
       >
         {currCourses.courses.map(({ code, dept, title, link }) => (
-          <li className="grid grid-cols-[1fr_2fr] w-full grid-rows-2 gap-x-4 text-xl font-bold">
+          <li
+            className="grid grid-cols-[1fr_2fr] w-full grid-rows-2 gap-x-4 text-xl font-bold"
+            key={title}
+          >
             <p className="col-start-1 justify-self-end text-yellow-500">
               {dept}
             </p>

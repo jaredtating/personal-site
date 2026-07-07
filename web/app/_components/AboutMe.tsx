@@ -3,7 +3,10 @@ import HeadSvg from "./head.svg";
 
 const AboutMe = () => {
   return (
-    <section className="relative content-grid w-full bg-gray-700 pt-30 pb-20">
+    <section
+      className="relative content-grid w-full bg-gray-700 pt-30 pb-20"
+      id="about-me"
+    >
       {/* Header Image. */}
       <div className="content-main grid grid-cols-2 gap-40">
         <div className="grid items-center place-items-center">

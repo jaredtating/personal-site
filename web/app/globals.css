@@ -203,6 +203,11 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
 body {
   background: var(--color-taupe-800);
   color: var(--foreground);
