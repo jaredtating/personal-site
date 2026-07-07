@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { COURSES } from "./courses";
+import { COURSES } from "../../_data/courses";
 import clsx from "clsx";
 
 type CourseType = keyof typeof COURSES;
