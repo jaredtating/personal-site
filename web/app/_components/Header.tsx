@@ -36,13 +36,16 @@ const Header = () => {
         </div>
 
         <div className="w-full items-center lg:items-start lg:pl-40 pt-3 flex flex-col gap-2">
-          <p className="text-4xl font-bold">
+          <p className="text-3xl lg:text-4xl font-bold">
             I like to{" "}
-            <AlternatingGlitchText className="text-4xl" wordList={verbs} />
+            <AlternatingGlitchText
+              className="text-3xl lg:text-4xl"
+              wordList={verbs}
+            />
           </p>
           <div className="flex flex-row gap-4 pt-2">
             {SOCIALS.map(({ text, href }) => (
-              <Link className="text-xl md:text-2xl" key={text} href={href}>
+              <Link className="text-xl lg:text-2xl" key={text} href={href}>
                 {text}
               </Link>
             ))}
@@ -51,14 +54,14 @@ const Header = () => {
       </div>
 
       {/* Links section */}
-      <div className="flex flex-col lg:flex-row items-center content-main justify-between z-10 row-start-2">
-        <p className="text-4xl text-gray-700 self-end hidden lg:block">
+      <div className="flex flex-col gap-8 text-center lg:text-left lg:flex-row items-center content-main justify-between z-10 row-start-2">
+        <p className="text-3xl lg:text-4xl text-gray-700 self-end w-full">
           site still a bit of a work in progress*
         </p>
         <div className="gap-2 flex flex-col items-center lg:items-start">
           {sections.map(({ text, id }) => (
             <a
-              className="uppercase font-bold text-4xl"
+              className="uppercase font-bold text-3xl lg:text-4xl"
               href={`#${id}`}
               key={text}
             >

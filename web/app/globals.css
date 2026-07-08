@@ -25,7 +25,7 @@
 
 @layer utilities {
   .content-grid {
-    @apply grid grid-cols-[20px_auto_20px] lg:grid-cols-[1fr_min(calc(100vw-60px),1200px)_1fr] w-screen;
+    @apply grid grid-cols-[20px_auto_20px] md:grid-cols-[40px_auto_40px] lg:grid-cols-[1fr_min(calc(100vw-120px),1200px)_1fr] w-screen;
   }
 
   .content-main {
@@ -206,6 +206,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  scrollbar-gutter: stable;
 }
 
 body {

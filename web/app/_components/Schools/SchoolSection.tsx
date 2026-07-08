@@ -24,11 +24,12 @@ const schools = [
 const SchoolsSection = () => {
   return (
     <section
-      className="relative content-grid header-gradient w-full py-20 pb-35"
+      className="relative content-grid header-gradient w-full pt-40 pb-40 lg:pb-10"
       id="schools"
     >
-      <div className="content-main grid grid-cols-2 gap-40">
-        <div className="col-start-1 flex flex-col justify-center items-center gap-10">
+      <div className="content-main grid grid-rows-[auto_auto] lg:grid-cols-2 gap-20 lg:gap-40">
+        {/* Schools. */}
+        <div className="flex flex-col justify-center items-center gap-10">
           <h2 className="text-5xl uppercase font-bold">Education</h2>
           <ul className="grid grid-cols-[auto_1fr] grid-rows-2 items-center">
             {schools.map((school) => (
@@ -57,7 +58,9 @@ const SchoolsSection = () => {
             ))}
           </ul>
         </div>
-        <div className="col-start-2 flex flex-col items-center gap-8">
+
+        {/* Courses. */}
+        <div className="flex flex-col items-center gap-8">
           <h2 className="text-5xl uppercase font-bold">Coursework</h2>
           <Coursework />
         </div>
@@ -70,7 +73,7 @@ const SchoolsSection = () => {
       <div className="absolute -bottom-px w-full h-20 bg-white [clip-path:polygon(0%_0%,0%_100%,100%_100%)]" />
 
       {/* Divider. */}
-      <div className="absolute -top-px left-1/2 h-full w-2 -translate-x-1/2 bg-white z-10" />
+      <div className="hidden lg:block absolute -top-px left-1/2 h-full w-2 -translate-x-1/2 bg-white z-10" />
     </section>
   );
 };
