@@ -18,6 +18,7 @@ const Coursework = () => {
             onClick={() => setCurrCourse(key as CourseType)}
             className={clsx("text-xl font-bold cursor-pointer", {
               underline: key === currCourse,
+              "hover:text-gray-300": key !== currCourse,
             })}
             key={key}
           >
@@ -32,20 +33,41 @@ const Coursework = () => {
           scrollbarWidth: "thin",
         }}
       >
-        {currCourses.courses.map(({ code, dept, title, link }) => (
-          <li
-            className="grid grid-cols-[1fr_2fr] w-full grid-rows-2 gap-x-4 text-xl font-bold"
-            key={title}
-          >
-            <p className="col-start-1 justify-self-end text-yellow-500">
-              {dept}
-            </p>
-            <p className="col-start-1 justify-self-end text-yellow-500">
-              {code}
-            </p>
-            <p className="col-start-2 row-start-1 row-span-2">{title}</p>
-          </li>
-        ))}
+        {currCourses.courses.map((course) => {
+          const { code, dept, title } = course;
+          const classContent = (
+            <>
+              <p>{dept}</p>
+              <p>{code}</p>
+            </>
+          );
+          const classStyle = "text-yellow-500 flex flex-col items-end";
+          const classEl =
+            "link" in course ? (
+              <a
+                className={clsx(
+                  "underline cursor-pointer hover:text-yellow-600",
+                  classStyle,
+                )}
+                href={course.link}
+                target="_blank"
+              >
+                {classContent}
+              </a>
+            ) : (
+              <div className={classStyle}>{classContent}</div>
+            );
+
+          return (
+            <li
+              className="grid grid-cols-[1fr_2fr] w-full gap-x-4 text-xl font-bold"
+              key={title}
+            >
+              {classEl}
+              <p>{title}</p>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

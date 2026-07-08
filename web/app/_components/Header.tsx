@@ -1,20 +1,17 @@
 "use client";
 
-import Link from "next/link";
 import GlitchText from "./GlitchText";
 import AlternatingGlitchText from "./AlternatingGlitchText";
 import SOCIALS from "../_data/socials";
+import { VERBS } from "../_data/verbs";
 
 const sections = [
   { text: "About me", id: "about-me" },
   { text: "Education", id: "schools" },
   { text: "Projects", id: "projects" },
 ];
-const verbs = ["code", "run", "design", "cook", "lift"];
 
 const NAME = "Jared Tating";
-
-// bg-linear-to-b from-gray-800 to-gray-900
 
 const Header = () => {
   return (
@@ -40,14 +37,20 @@ const Header = () => {
             I like to{" "}
             <AlternatingGlitchText
               className="text-3xl lg:text-4xl"
-              wordList={verbs}
+              wordList={VERBS}
             />
           </p>
           <div className="flex flex-row gap-4 pt-2">
             {SOCIALS.map(({ text, href }) => (
-              <Link className="text-xl lg:text-2xl" key={text} href={href}>
-                {text}
-              </Link>
+              <GlitchText
+                as="a"
+                className="text-xl lg:text-2xl font-normal"
+                href={href}
+                key={text}
+                text={text}
+                isOnHover={true}
+                target="_blank"
+              />
             ))}
           </div>
         </div>
@@ -60,13 +63,14 @@ const Header = () => {
         </p>
         <div className="gap-2 flex flex-col items-center lg:items-start">
           {sections.map(({ text, id }) => (
-            <a
+            <GlitchText
+              as="a"
               className="uppercase font-bold text-3xl lg:text-4xl"
               href={`#${id}`}
               key={text}
-            >
-              {text}
-            </a>
+              text={text}
+              isOnHover={true}
+            />
           ))}
         </div>
       </div>

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import ContactButton from "./ContactButton";
 import HeadSvg from "./head.svg";
 
@@ -24,14 +23,27 @@ const AboutMe = () => {
             <ul className="text-3xl text-center lg:text-left pt-8 pb-6 px-8 flex flex-col gap-4">
               <p>
                 Hello there! I'm Jared, and I like to do things. I graduated
-                from the University of California, Berkeley in 2024 with a
-                degree in Computer Science and Cognitive Science.
+                from the University of California, Berkeley in 2022 with a
+                degree in Computer Science and Cognitive Science!
               </p>
               <p>
                 I am currently a senior software engineer at{" "}
-                <Link href="">IXL Learning</Link>, and work on{" "}
-                <Link href="">Spark Studio</Link>, building tools for educators
-                and learners!
+                <a
+                  className="text-sky-300 underline hover:text-sky-400"
+                  href="https://www.ixl.com/company"
+                  target="_blank"
+                >
+                  IXL Learning
+                </a>
+                , and work on{" "}
+                <a
+                  className="text-sky-300 underline hover:text-sky-400"
+                  href="https://sparkstudio.ixl.com"
+                  target="_blank"
+                >
+                  Spark Studio
+                </a>
+                , building tools for educators and learners!
               </p>
             </ul>
           </div>

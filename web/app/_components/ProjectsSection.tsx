@@ -2,23 +2,40 @@ import { SlArrowRight } from "react-icons/sl";
 
 interface ProjectBoxProps {
   title: string;
+  href: string;
 }
 
-const ProjectBox = ({ title }: ProjectBoxProps) => {
+const ProjectBox = ({ title, href }: ProjectBoxProps) => {
   return (
-    <div className="w-full max-w-200 min-h-30 bg-gray-700 p-5 rounded-md drop-shadow-2xl flex justify-between items-center">
-      <h3 className="text-white text-2xl font-bold text-left whitespace-pre-wrap">
-        {title}
-      </h3>
-      <SlArrowRight color="white" className="size-10" />
-    </div>
+    <a
+      className="group relative w-full max-w-200 min-h-30 flex items-center overflow-hidden rounded-md bg-gray-700 p-5 drop-shadow-2xl"
+      href={href}
+      target="_blank"
+    >
+      <div className="absolute inset-0 w-0 bg-gray-800/80 transition-[width] duration-300 ease-out group-hover:w-full" />
+      <div className="relative z-10 flex items-center justify-between w-full">
+        <h3 className="text-left whitespace-pre-wrap text-2xl font-bold text-white">
+          {title}
+        </h3>
+        <SlArrowRight color="white" className="size-10" />
+      </div>
+    </a>
   );
 };
 
 const PROJECTS = [
-  { title: "SPARK STUDIO\n(current professional work @ IXL Learning)" },
-  { title: "LEGACY PERSONAL SITE\nHTML/CSS" },
-  { title: "PERSONAL SITE \nREACT/TAILWIND" },
+  {
+    title: "SPARK STUDIO\n(current professional work @ IXL Learning)",
+    href: "https://sparkstudio.ixl.com",
+  },
+  {
+    title: "LEGACY PERSONAL SITE\nHTML/JS/CSS",
+    href: "https://github.com/jaredtating/project_WEB",
+  },
+  {
+    title: "PERSONAL SITE \nREACT/TS/TAILWIND",
+    href: "https://github.com/jaredtating/personal-site",
+  },
 ] as const;
 
 const ProjectsSection = ({}) => {
