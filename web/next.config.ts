@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
+  generateBuildId: async () => {
+    return process.env.NEXT_BUILD_ID || `build-${Date.now()}`;
+  },
   assetPrefix: "/personal-site",
   basePath: "/personal-site",
   images: {
@@ -11,16 +14,16 @@ const nextConfig: NextConfig = {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
+      use: ["@svgr/webpack"],
     });
     return config;
   },
 
-turbopack: {
+  turbopack: {
     rules: {
-      '*.svg': {
-        loaders: ['@svgr/webpack'],
-        as: '*.js',
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
       },
     },
   },
