@@ -60,7 +60,7 @@ const Header = () => {
       </div>
 
       {/* Links section */}
-      <div className="flex flex-col gap-8 text-center lg:text-left lg:flex-row items-center content-main justify-end z-10 row-start-2">
+      <div className="flex flex-col gap-8 text-center lg:text-left lg:flex-row items-center content-main justify-end z-10 row-start-2 pb-10">
         <div className="gap-2 flex flex-col items-center lg:items-start">
           {sections.map(({ text, id }) => (
             <GlitchText
