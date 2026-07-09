@@ -21,13 +21,16 @@ const Header = () => {
     >
       {/* Hero section */}
       <div className="content-main w-full -rotate-3 -skew-3 z-10 row-start-1">
-        <div className="grid grid-cols-[0.5fr_auto_0.5fr] px-5 md:px-0 lg:grid-cols-[1fr_auto_3fr] gap-3 md:gap-4 lg:gap-6 grid-rows-1 w-full items-center mt-20 sm:mt-40">
+        <div className="grid grid-cols-[1fr_auto_1fr] px-5 md:px-0 lg:grid-cols-[1fr_auto_3fr] gap-3 md:gap-4 lg:gap-6 grid-rows-1 w-full items-center mt-20 sm:mt-40">
           {/* Left bracket. */}
           <div className="border-8 border-r-0 h-18 md:h-14 rounded-l-sm" />
-          <GlitchText
-            className="lg:text-8xl text-5xl sm:text-7xl w-min md:w-full uppercase text-center"
-            text={NAME}
-          />
+          {/* Strange bug with width, necessitates span. */}
+          <span>
+            <GlitchText
+              className="lg:text-8xl text-5xl sm:text-7xl w-min md:w-full uppercase text-center"
+              text={NAME}
+            />
+          </span>
           {/* Right bracket. */}
           <div className="border-8 border-l-0 h-18 md:h-14 rounded-r-sm" />
         </div>
