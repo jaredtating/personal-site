@@ -42,6 +42,7 @@ const Nav = () => {
           <PiLogo />
         </Link>
         <RxHamburgerMenu
+          className="md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           size={60}
         />
