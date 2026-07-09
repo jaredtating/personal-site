@@ -90,7 +90,7 @@ const AlternatingGlitchText = ({
   }, [wordList]);
 
   return (
-    <span className="relative inline-block w-fit">
+    <span className="relative inline-block w-fit text-center">
       <GlitchText
         shouldDisable={shouldDisable}
         as="span"

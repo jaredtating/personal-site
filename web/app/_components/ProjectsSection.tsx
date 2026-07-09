@@ -14,10 +14,10 @@ const ProjectBox = ({ title, href }: ProjectBoxProps) => {
     >
       <div className="absolute inset-0 w-0 bg-gray-800/80 transition-[width] duration-300 ease-out group-hover:w-full" />
       <div className="relative z-10 flex items-center justify-between w-full">
-        <h3 className="text-left whitespace-pre-wrap text-2xl font-bold text-white">
+        <h3 className="text-left whitespace-pre-wrap text-lg lg:text-2xl font-bold text-white">
           {title}
         </h3>
-        <SlArrowRight color="white" className="size-10" />
+        <SlArrowRight color="white" className="size-10 shrink-0" />
       </div>
     </a>
   );
@@ -40,10 +40,13 @@ const PROJECTS = [
 
 const ProjectsSection = ({}) => {
   return (
-    <section className="content-grid bg-white pb-20" id="projects">
-      <div className="content-main flex flex-col items-center pt-10 text-gray-700 gap-8 text-center">
-        <h2 className="text-5xl font-bold uppercase">Projects</h2>
-        <p className="text-2xl">
+    <section
+      className="content-grid w-full bg-white pb-10 lg:pb-20"
+      id="projects"
+    >
+      <div className="content-main flex flex-col items-center pt-10 text-gray-700 gap-6 md:gap-8 text-center">
+        <h2 className="text-4xl lg:text-5xl font-bold uppercase">Projects</h2>
+        <p className="text-xl lg:text-2xl">
           Work I've contributed to personally or collaberated on professionally
         </p>
 
@@ -52,7 +55,7 @@ const ProjectsSection = ({}) => {
             <ProjectBox {...entry} key={entry.title} />
           ))}
         </ul>
-        <p className="text-2xl italic">
+        <p className="text-xl lg:text-2xl italic">
           I don't have any other personal projects that still work at the
           moment. lol.
         </p>
