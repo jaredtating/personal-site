@@ -60,7 +60,7 @@ const Header = () => {
       </div>
 
       {/* Links section */}
-      <div className="flex flex-col gap-8 text-center lg:text-left lg:flex-row items-center content-main justify-end z-10 row-start-2 pb-10">
+      <div className="flex flex-col gap-8 text-center lg:text-left lg:flex-row items-center content-main justify-end z-10 row-start-2 pb-20 sm:pb-0">
         <div className="gap-2 flex flex-col items-center lg:items-start">
           {sections.map(({ text, id }) => (
             <GlitchText
@@ -76,8 +76,8 @@ const Header = () => {
       </div>
 
       {/* Vertical line. */}
-      <div className="absolute bottom-0 h-1/12 left-1/2 w-2 -translate-x-1/2 bg-white" />
-      <div className="absolute rounded-full bottom-1/12 left-1/2 size-6 -translate-x-1/2 translate-y-1/2 bg-white" />
+      <div className="absolute bottom-0 h-1/6 sm:h-1/12 left-1/2 w-2 -translate-x-1/2 bg-white" />
+      <div className="absolute rounded-full bottom-1/6 sm:bottom-1/12 left-1/2 size-6 -translate-x-1/2 translate-y-1/2 bg-white" />
     </section>
   );
 };
