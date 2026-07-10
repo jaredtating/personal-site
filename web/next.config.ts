@@ -5,8 +5,6 @@ const nextConfig: NextConfig = {
   generateBuildId: async () => {
     return process.env.NEXT_BUILD_ID || `build-${Date.now()}`;
   },
-  assetPrefix: "/personal-site",
-  basePath: "/personal-site",
   images: {
     unoptimized: true,
   },
