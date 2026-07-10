@@ -8,7 +8,7 @@ const schools = [
   {
     key: "bethel",
     image: JesseBethelImg,
-    size: "size-45",
+    style: "size-45",
     name: "Jesse Bethel High School",
     city: "Vallejo, CA",
     text: ["Class of 2018"],
@@ -16,7 +16,7 @@ const schools = [
   {
     key: "cal",
     image: CalImg,
-    size: "size-30",
+    style: "size-30 mb-8 sm:mb-0",
     name: "University of California, Berkeley",
     city: "Berkeley, CA",
     text: ["B.A. Computer Science and Cognitive Science", "Class of 2022"],
@@ -35,7 +35,7 @@ const SchoolsSection = () => {
           <h2 className="text-3xl lg:text-4xl uppercase font-bold">
             Education
           </h2>
-          <ul className="grid grid-cols-[auto_1fr] grid-rows-2 items-center gap-8">
+          <ul className="grid grid-cols-[auto_1fr] grid-rows-[auto_auto] items-center gap-10">
             {schools.map((school) => (
               <li
                 key={school.name}
@@ -46,8 +46,7 @@ const SchoolsSection = () => {
                   alt={school.name}
                   className={clsx(
                     "cols-start-1 self-center justify-self-center",
-                    school.size,
-                    { "mb-8 sm:mb-0": school.key === "cal" },
+                    school.style,
                   )}
                 />
                 <div className="flex flex-col items-center sm:items-start cols-start-2 self-center text-center sm:text-left text-2xl">

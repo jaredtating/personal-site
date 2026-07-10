@@ -33,7 +33,7 @@ const Nav = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <section className="content-grid w-full box-content z-20 border-b sticky top-0 shadow-xl header-gradient">
+    <section className="content-grid z-20 border-b sticky top-0 shadow-xl header-gradient">
       {isMobileMenuOpen && (
         <MobileNav onClose={() => setIsMobileMenuOpen(false)} />
       )}

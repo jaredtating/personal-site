@@ -12,11 +12,11 @@ const Coursework = () => {
 
   return (
     <div className="col-start-2 flex flex-col gap-8">
-      <div className="flex flex-row justify-center gap-4">
+      <div className="flex flex-row justify-center items-center gap-4">
         {Object.entries(COURSES).map(([key, entry]) => (
           <p
             onClick={() => setCurrCourse(key as CourseType)}
-            className={clsx("text-xl font-bold cursor-pointer", {
+            className={clsx("text-xl font-bold cursor-pointer text-center", {
               underline: key === currCourse,
               "hover:text-gray-300": key !== currCourse,
             })}
